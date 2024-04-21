@@ -1,0 +1,9 @@
+header {
+    display: flex;
+    max-width: 2000px;
+    flex-wrap: wrap;
+}
+
+#domainName {
+    align-self: center;
+}
