@@ -7,3 +7,9 @@ header {
 #domainName {
     align-self: center;
 }
+
+#whoIs {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 8px;
+}
