@@ -17,7 +17,6 @@ function chooseCMD(cmd) {
         case "help":
             showHelp();
             break;
-        
         case "whois":
             showWhoIs();
             break;
@@ -139,7 +138,6 @@ function showProjects() {
 }
 
 function createDiv(object, parentNode) {
-
     Object.keys(object).forEach((key) => {
         const contentDiv = document.createElement("div");
 
@@ -156,6 +154,26 @@ function createDiv(object, parentNode) {
 
         parentNode.appendChild(contentDiv);
     });
+
+    parentNode.className = "contentDiv";
+    body.insertBefore(parentNode, userInput);
+}
+
+function createIconDiv(iconArray, titleArray, parentNode) {
+    for(let i = 0; i < iconArray.length; i++) {
+        const icondDiv = document.createElement("div");
+        icondDiv.setAttribute("style", "text-align: center;");
+
+        const icon = document.createElement("img");
+        icon.src = iconArray[i];
+        icondDiv.appendChild(icon);
+
+        const title = document.createElement("h4");
+        title.textContent = titleArray[i];
+        icondDiv.appendChild(title);
+
+        parentNode.appendChild(icondDiv);
+    }
 
     parentNode.className = "contentDiv";
     body.insertBefore(parentNode, userInput);
