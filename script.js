@@ -3,11 +3,24 @@ const shell = document.querySelector("input");
 const header = document.querySelector("header");
 const userInput = document.querySelector("#userInput");
 
+window.addEventListener("load", () => {
+    shell.focus();
+});
+
 shell.addEventListener("keydown", (press) => {
     if (press.key == "Enter") {
         chooseCMD(shell.value);
+    } else if (press.ctrlKey && press.key == "c") {
+        clearScreen();
     }
 });
+
+function clearScreen() {
+    while (userInput.previousSibling != header) {
+        const deleteNode = userInput.previousSibling;
+        body.removeChild(deleteNode);
+    }
+}
 
 function chooseCMD(cmd) {
     cmd = cmd.trim();
