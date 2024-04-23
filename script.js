@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
 
 shell.addEventListener("keydown", (press) => {
     if (press.key == "Enter") {
+        repeatShell();
         chooseCMD(shell.value);
     } else if (press.ctrlKey && press.key == "c") {
         clearScreen();
@@ -20,6 +21,13 @@ function clearScreen() {
         const deleteNode = userInput.previousSibling;
         body.removeChild(deleteNode);
     }
+}
+
+function repeatShell() {
+    const cmdCopy = document.createElement("p");
+    cmdCopy.textContent = `visitor@brayan-vanz:~$${shell.value}`;
+
+    body.insertBefore(cmdCopy, userInput);
 }
 
 function chooseCMD(cmd) {
