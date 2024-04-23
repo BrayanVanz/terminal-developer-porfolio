@@ -16,4 +16,6 @@ header {
 
 .contentDiv {
     display: flex;
+    gap: 32px;
+    text-align: justify;
 }

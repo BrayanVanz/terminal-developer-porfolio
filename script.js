@@ -21,6 +21,9 @@ function chooseCMD(cmd) {
         case "whois":
             showWhoIs();
             break;
+        case "experience":
+            showExperience();
+            break;
     }
 }
 
@@ -84,10 +87,30 @@ function showWhoIs() {
     shell.value = '';
 }
 
+function showExperience() {
+    const jobs = {
+        "TSE - Voting Machine Public Security Test | Investigator" :
+        ["- Analyzed voting machine's source code and hardware",
+         "- Performed multiple exploits in order to break the secret ballot",
+         "- Organized related data into a report addressed to thre Supreme Electoral Court",
+         "- Brasília, DF | 11.2023 - 12.2023"],
+        "UPF - Laboratory of Microbiology and Immunology | Intern" : 
+        ["- Read and interpreted scientific papers",
+         "- Assembled data collected through experiments",
+         "- Synthesized sample results into graphs and Excel spreadsheets",
+         " - Passo Fundo, RS | 04.2022 - 12.2022"]
+    };
+
+    const experienceSection = document.createElement("div");
+    createDiv(jobs, experienceSection);
+    shell.value = '';
+}
+
 function createDiv(object, parentNode) {
-    const contentDiv = document.createElement("div");
 
     Object.keys(object).forEach((key) => {
+        const contentDiv = document.createElement("div");
+
         const title = document.createElement("h4");
         title.textContent = key;
         contentDiv.appendChild(title);
@@ -98,9 +121,10 @@ function createDiv(object, parentNode) {
             details.textContent = values[i];
             contentDiv.appendChild(details);
         }
+
+        parentNode.appendChild(contentDiv);
     });
 
-    parentNode.appendChild(contentDiv);
     parentNode.className = "contentDiv";
     body.insertBefore(parentNode, userInput);
 }
