@@ -24,6 +24,9 @@ function chooseCMD(cmd) {
         case "experience":
             showExperience();
             break;
+        case "projects":
+            showProjects();
+            break;
     }
 }
 
@@ -103,6 +106,35 @@ function showExperience() {
 
     const experienceSection = document.createElement("div");
     createDiv(jobs, experienceSection);
+    shell.value = '';
+}
+
+function showProjects() {
+    const projects = {
+        "Terminal Developer Portfolio" : 
+        ["- Simulate a computer terminal emulator",
+         "- Use JavaScript to manipulate the DOM",
+         "- Make unique shell style with CSS",
+         "- Showcase personal skillset"],
+        "Website Landing Page" : 
+        ["- Create a sample website landing page",
+         "- Practice HTML page formatting",
+         "- Style different sections with CSS",
+         "- Organize elements using Flexbox"],
+        "Space Transmitter" : 
+        ["- Collect space probe data through user input",
+         "- Establish websocket communication between client and server",
+         "- Run both nodes simultaneously via multithreading",
+         "- Use AES and RSA enctryption to validate file exchange"],
+        "Space Marker" : 
+        ["- Python project using the Pygame library",
+         "- Create and name stars upon clicking",
+         "- Calculate distance between them to make constellations",
+         "- Store information into a loadable local database"]
+    };
+
+    const projectsSection = document.createElement("div");
+    createDiv(projects, projectsSection);
     shell.value = '';
 }
 
