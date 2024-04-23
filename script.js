@@ -42,6 +42,9 @@ function chooseCMD(cmd) {
         case "skills":
             showSkills();
             break;
+        case "education":
+            showEducation();
+            break;
     }
 }
 
@@ -177,6 +180,27 @@ function showSkills() {
 
     const skillsSection = document.createElement("div");
     createIconDiv(skillIcons, skillTitles, skillsSection);
+    shell.value = '';
+}
+
+function showEducation() {
+    const education = {
+        "ATITUS | Computer Science" : 
+        ["- Programming languages, libraries and frameworks",
+         "- Network infrastructure and cloud service providers",
+         "- Software engineering, databases, agile development",
+         "- Operating systems, virtual machines, penetration tests",
+         "- Passo Fundo, RS | 03.2023 - 12.2026"],
+        "AWS Academy Graduate | Introduction to Cloud" : 
+        ["- Cloud concepts and fundamentals",
+         "- Overview of the main AWS services",
+         "- Practice within simulated environments",
+         "- Setting up EC2, S3, IAM, WAF, Docker",
+         "- Online Course | 08.2023 - 11.2023"]
+    };
+
+    const educationSection = document.createElement("div");
+    createDiv(education, educationSection);
     shell.value = '';
 }
 
