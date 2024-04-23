@@ -4,6 +4,11 @@ header {
     flex-wrap: wrap;
 }
 
+a {
+    color: black;
+    display: block;
+}
+
 #domainName {
     align-self: center;
 }

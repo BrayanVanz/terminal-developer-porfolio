@@ -45,6 +45,8 @@ function chooseCMD(cmd) {
         case "education":
             showEducation();
             break;
+        case "contact":
+            showContact();
     }
 }
 
@@ -204,6 +206,16 @@ function showEducation() {
     shell.value = '';
 }
 
+function showContact() {
+    const contactIcons = ["./media/phone.svg", "./media/linkedin.svg", "./media/github.svg"];
+    const contactTitles = ["+55 (54) 99621-2710", "Linkedin", "GitHub"];
+    const contactLinks = ["#", "https://www.linkedin.com/in/brayan-vanz/", "https://github.com/BrayanVanz"];
+    
+    const contactSection = document.createElement("div");
+    createIconDiv(contactIcons, contactTitles, contactSection, 1, contactLinks);
+    shell.value = '';
+}
+
 function createDiv(object, parentNode) {
     Object.keys(object).forEach((key) => {
         const contentDiv = document.createElement("div");
@@ -226,7 +238,7 @@ function createDiv(object, parentNode) {
     body.insertBefore(parentNode, userInput);
 }
 
-function createIconDiv(iconArray, titleArray, parentNode) {
+function createIconDiv(iconArray, titleArray, parentNode, insertLink, linkArray) {
     for(let i = 0; i < iconArray.length; i++) {
         const icondDiv = document.createElement("div");
         icondDiv.setAttribute("style", "text-align: center;");
@@ -236,9 +248,16 @@ function createIconDiv(iconArray, titleArray, parentNode) {
         icon.className = "icon";
         icondDiv.appendChild(icon);
 
-        const title = document.createElement("h4");
-        title.textContent = titleArray[i];
-        icondDiv.appendChild(title);
+        if (insertLink) {
+            const link = document.createElement("a");
+            link.href = linkArray[i];
+            link.textContent = titleArray[i];
+            icondDiv.appendChild(link);
+        } else {
+            const title = document.createElement("h4");
+            title.textContent = titleArray[i];
+            icondDiv.appendChild(title);
+        }
 
         parentNode.appendChild(icondDiv);
     }
