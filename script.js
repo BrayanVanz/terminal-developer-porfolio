@@ -26,6 +26,9 @@ function chooseCMD(cmd) {
         case "projects":
             showProjects();
             break;
+        case "skills":
+            showSkills();
+            break;
     }
 }
 
@@ -137,6 +140,33 @@ function showProjects() {
     shell.value = '';
 }
 
+function showSkills() {
+    const skillIcons = [
+        "./media/html.svg",
+        "./media/css.svg",
+        "./media/js.svg",
+        "./media/java.svg",
+        "./media/python.svg",
+        "./media/postgresql.svg",
+        "./media/linux.svg",
+        "./media/git.svg",
+        "./media/github.svg",
+        "./media/aws.svg"
+    ];
+
+    const skillTitles = [
+        "HTML", "CSS", 
+        "JavaScript", "Java", 
+        "Python", "PostgreSQL", 
+        "Linux", "Git", 
+        "GitHub", "AWS"
+    ];
+
+    const skillsSection = document.createElement("div");
+    createIconDiv(skillIcons, skillTitles, skillsSection);
+    shell.value = '';
+}
+
 function createDiv(object, parentNode) {
     Object.keys(object).forEach((key) => {
         const contentDiv = document.createElement("div");
@@ -166,6 +196,7 @@ function createIconDiv(iconArray, titleArray, parentNode) {
 
         const icon = document.createElement("img");
         icon.src = iconArray[i];
+        icon.className = "icon";
         icondDiv.appendChild(icon);
 
         const title = document.createElement("h4");
