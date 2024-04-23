@@ -11,6 +11,7 @@ shell.addEventListener("keydown", (press) => {
     if (press.key == "Enter") {
         repeatShell();
         chooseCMD(shell.value);
+        moveScreen();
     } else if (press.ctrlKey && press.key == "c") {
         clearScreen();
     }
@@ -21,6 +22,10 @@ function clearScreen() {
         const deleteNode = userInput.previousSibling;
         body.removeChild(deleteNode);
     }
+}
+
+function moveScreen() {
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 function repeatShell() {
@@ -87,11 +92,11 @@ function showHelp() {
 
 function showWhoIs() {
     const whoIsSection = document.createElement("div");
-    whoIsSection.id = "whoIs";
+    whoIsSection.className = "contentDiv";
 
     const profile = document.createElement("img");
     profile.src = "./media/profile.jpeg";
-    profile.setAttribute("style", "border-radius: 50%");
+    profile.setAttribute("style", "border-radius: 50%;"); 
 
     const information = document.createElement("div");
     information.setAttribute("style", "max-width: 500px; text-align: justify;");
