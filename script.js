@@ -83,3 +83,24 @@ function showWhoIs() {
     body.insertBefore(whoIsSection, userInput);
     shell.value = '';
 }
+
+function createDiv(object, parentNode) {
+    const contentDiv = document.createElement("div");
+
+    Object.keys(object).forEach((key) => {
+        const title = document.createElement("h4");
+        title.textContent = key;
+        contentDiv.appendChild(title);
+
+        const values = object[key];
+        for (let i = 0; i < values.length; i++) {
+            const details = document.createElement("p");
+            details.textContent = values[i];
+            contentDiv.appendChild(details);
+        }
+    });
+
+    parentNode.appendChild(contentDiv);
+    parentNode.className = "contentDiv";
+    body.insertBefore(parentNode, userInput);
+}
