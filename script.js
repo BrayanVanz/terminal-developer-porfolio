@@ -14,6 +14,8 @@ shell.addEventListener("keydown", (press) => {
         moveScreen();
     } else if (press.ctrlKey && press.key == "c") {
         clearScreen();
+    } else if (press.key == "Shift") {
+        completeCMD();
     }
 });
 
@@ -38,6 +40,19 @@ function repeatShell() {
     lineCopy.appendChild(cmdCopy);
 
     body.insertBefore(lineCopy, userInput);
+}
+
+function completeCMD() {
+    const commands = ["help", "whois", "experience", "projects", 
+    "skills", "education", "contact"];
+
+    commands.filter((command) => {
+        let complete = command.startsWith(shell.value);
+
+        if (complete) {
+            shell.value = command;
+        }
+    });
 }
 
 function chooseCMD(cmd) {
