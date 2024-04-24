@@ -29,10 +29,15 @@ function moveScreen() {
 }
 
 function repeatShell() {
-    const cmdCopy = document.createElement("p");
-    cmdCopy.textContent = `visitor@brayan-vanz:~$${shell.value}`;
+    const lineCopy = document.createElement("p");
+    lineCopy.textContent = "visitor@brayan-vanz:~$";
 
-    body.insertBefore(cmdCopy, userInput);
+    const cmdCopy = document.createElement("span");
+    cmdCopy.textContent = shell.value;
+    cmdCopy.className = "keyWord";
+    lineCopy.appendChild(cmdCopy);
+
+    body.insertBefore(lineCopy, userInput);
 }
 
 function chooseCMD(cmd) {
@@ -65,12 +70,12 @@ function chooseCMD(cmd) {
 
 function showHelp() {
     const options = {
-        whois : "- Learn more about me.",
-        experience : "- Work related experience.",
-        projects : " - Personal projects I have worked on.",
-        skills : "- Tools I have studied and used previously.",
-        education : "- Formal education and certifications.",
-        contact : "- Channels for professional inquiries."
+        whois : "Learn more about me.",
+        experience : "Work related experience.",
+        projects : "Personal projects I have worked on.",
+        skills : "Tools I have studied and used previously.",
+        education : "Formal education and certifications.",
+        contact : "Channels for professional inquiries."
     };
 
     const commandSection = document.createElement("div");
@@ -96,7 +101,7 @@ function showWhoIs() {
 
     const profile = document.createElement("img");
     profile.src = "./media/profile.jpeg";
-    profile.setAttribute("style", "border-radius: 50%;"); 
+    profile.id = "profileImage";
 
     const information = document.createElement("div");
     information.setAttribute("style", "max-width: 500px; text-align: justify;");
@@ -126,15 +131,15 @@ function showWhoIs() {
 function showExperience() {
     const jobs = {
         "TSE - Voting Machine Public Security Test | Investigator" :
-        ["- Analyzed voting machine's source code and hardware",
-         "- Performed multiple exploits in order to break the secret ballot",
-         "- Organized related data into a report addressed to thre Supreme Electoral Court",
-         "- Brasília, DF | 11.2023 - 12.2023"],
+        ["Analyzed voting machine's source code and hardware",
+         "Performed multiple exploits in order to break the secret ballot",
+         "Organized related data into a report addressed to thre Supreme Electoral Court",
+         "Brasília, DF | 11.2023 - 12.2023"],
         "UPF - Laboratory of Microbiology and Immunology | Intern" : 
-        ["- Read and interpreted scientific papers",
-         "- Assembled data collected through experiments",
-         "- Synthesized sample results into graphs and Excel spreadsheets",
-         " - Passo Fundo, RS | 04.2022 - 12.2022"]
+        ["Read and interpreted scientific papers",
+         "Assembled data collected through experiments",
+         "Synthesized sample results into graphs and Excel spreadsheets",
+         "Passo Fundo, RS | 04.2022 - 12.2022"]
     };
 
     const experienceSection = document.createElement("div");
@@ -145,25 +150,25 @@ function showExperience() {
 function showProjects() {
     const projects = {
         "Terminal Developer Portfolio" : 
-        ["- Simulate a computer terminal emulator",
-         "- Use JavaScript to manipulate the DOM",
-         "- Make unique shell style with CSS",
-         "- Showcase personal skillset"],
+        ["Simulate a computer terminal emulator",
+         "Use JavaScript to manipulate the DOM",
+         "Make unique shell style with CSS",
+         "Showcase personal skillset"],
         "Website Landing Page" : 
-        ["- Create a sample website landing page",
-         "- Practice HTML page formatting",
-         "- Style different sections with CSS",
-         "- Organize elements using Flexbox"],
+        ["Create a sample website landing page",
+         "Practice HTML page formatting",
+         "Style different sections with CSS",
+         "Organize elements using Flexbox"],
         "Space Transmitter" : 
-        ["- Collect space probe data through user input",
-         "- Establish websocket communication between client and server",
-         "- Run both nodes simultaneously via multithreading",
-         "- Use AES and RSA enctryption to validate file exchange"],
+        ["Collect space probe data through user input",
+         "Establish websocket communication between client and server",
+         "Run both nodes simultaneously via multithreading",
+         "Use AES and RSA encryption to validate file exchange"],
         "Space Marker" : 
-        ["- Python project using the Pygame library",
-         "- Create and name stars upon clicking",
-         "- Calculate distance between them to make constellations",
-         "- Store information into a loadable local database"]
+        ["Python project using the Pygame library",
+         "Create and name stars upon clicking",
+         "Calculate distance between them to make constellations",
+         "Store information into a loadable local database"]
     };
 
     const projectsSection = document.createElement("div");
@@ -201,17 +206,17 @@ function showSkills() {
 function showEducation() {
     const education = {
         "ATITUS | Computer Science" : 
-        ["- Programming languages, libraries and frameworks",
-         "- Network infrastructure and cloud service providers",
-         "- Software engineering, databases, agile development",
-         "- Operating systems, virtual machines, penetration tests",
-         "- Passo Fundo, RS | 03.2023 - 12.2026"],
+        ["Programming languages, libraries and frameworks",
+         "Network infrastructure and cloud service providers",
+         "Software engineering, databases, agile development",
+         "Operating systems, virtual machines, penetration tests",
+         "Passo Fundo, RS | 03.2023 - 12.2026"],
         "AWS Academy Graduate | Introduction to Cloud" : 
-        ["- Cloud concepts and fundamentals",
-         "- Overview of the main AWS services",
-         "- Practice within simulated environments",
-         "- Setting up EC2, S3, IAM, WAF, Docker",
-         "- Online Course | 08.2023 - 11.2023"]
+        ["Cloud concepts and fundamentals",
+         "Overview of the main AWS services",
+         "Practice within simulated environments",
+         "Setting up EC2, S3, IAM, WAF, Docker",
+         "Online Course | 08.2023 - 11.2023"]
     };
 
     const educationSection = document.createElement("div");
